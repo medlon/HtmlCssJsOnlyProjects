@@ -1,0 +1,128 @@
+
+*{
+    margin: 0;
+}
+.wrapper{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* variable */
+    --loto: 'Lato', sans-serif;
+    --icon-color:#fff;
+    gap: 15px;
+}
+.card{
+    position: relative;
+    text-decoration: none;
+    color: initial;
+    height: 500px;
+    width: 100%;
+    /* background: red; */
+    overflow: hidden;
+    border-radius: 5px;
+}
+.card-link{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+.person-name{
+    font-family: var(--loto);
+    color: #000;
+    font-size: 20px;
+    background: #fff;
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: 600;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    z-index: 2;
+}
+.card:hover .person-name{
+    opacity: 1;
+}
+.image-holder{
+    position: relative;
+    max-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+.image-holder img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s linear;
+}
+.card:hover .image-holder img{
+    transform: translateX(25px);
+    scale: 1.5;
+    filter: grayscale(0.9);
+}
+.social-media-icons{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    bottom: 10px;
+    left: 10px;
+    transition: opacity 0.2s linear;
+    opacity: 0;
+    z-index: 4;
+}
+.card:hover .social-media-icons{
+    opacity: 1;
+}
+.social-media-icons a{
+        display: flex;
+        height: 20px;
+        width: 20px;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        border-radius: 2px;
+        padding: 5px;
+        text-decoration: none;
+        position: relative;
+}
+.social-media-icons a i{
+    font-size: 18px;
+    color: var(--icon-color);
+}
+.social-media-icons .icon-name{
+    position: absolute;
+    left: 30px;
+    font-size: 0;
+    color: var(--icon-color);
+    font-family: var(--loto);
+    border-radius: 2px;
+    font-weight: 400;
+    background: #000;
+    padding: 5px;
+    letter-spacing: 1px;
+    width: 0;
+    opacity: 0;
+}
+.social-media-icons a:hover .icon-name{
+    transition: transform 0.2s linear;
+    transform: translateX(10px);
+    font-size: 15px;
+    width: auto;
+    opacity: 1;
+}
+
+@media (max-width:1024px){
+    .wrapper{
+       grid-template-columns: repeat(1, 1fr);
+    }
+    .person-name{
+        opacity: 1;
+    }
+    .social-media-icons{
+        opacity: 1;
+    }
+}
